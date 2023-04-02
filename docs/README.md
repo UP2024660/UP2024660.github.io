@@ -12,7 +12,7 @@ See what I can do , take a Peek.
 ------------------------------------------------------
 ------------------------INFO--------------------------
 
-Mark Voss is a Twenty Year Old Computer Science Student at the University of Portsmouth. He Averaged 80.9% in his first year studies, and is currently partaking in his second year of studies in Portsmouth.
+Mark Voss is a Twenty One Year Old Computer Science Student at the University of Portsmouth. He Averaged 80.9% in his first year studies, and is currently partaking in his second year of studies in Portsmouth.
 
 Mark is proficcient in Python, having started coding in the language when he was 13 years old. For his first year project, Mark had to create a pattern that updated based on User Input. 
 
@@ -50,5 +50,18 @@ Mark is an Avid Formula 1 Fan, having been lucky enough to meet past drivers suc
 
 Mark spends his downtime relaxing in the Cinema , or supporting Manchester United, which has severely aged him during the past seasons. 
 
-------------------------------------------------------
-------------------------------------------------------
+-----------------------------------------------------------
+---------------WORK EXPERIENCE-----------------------------
+
+
+From the age of 16, Mark worked within multiple Co-Operative stores , starting at a Customer Team Member, which consisted of manning the tills, greeting customers and stacking shelves.
+
+At the age of 18 , Mark was promoted to Team Leader, and was in charge of editing work rotas for all members of staff, was a key holder , and had the keys to the safes in which carried Money.
+
+Mark stayed within multiple Co-Operative stores, having worked within two stores in his hometown of Milton Keynes, before moving to study Computer Science at the university of Portsmouth , where he worked in 5 seperate stores.
+
+
+
+In August 2022, Mark started working at Murata Power Solutions , where he was a Production Operator , having been trained in dealing with High Voltage equipment, among other xe5rtifications involving Electricity.
+
+While at Murata Power Solutions, he took up a second job , working as a safety steward at the MK Dons Football Club Stadium, working as a steward. Through working with the football club, Mark received his DBS certification, due to the nature of working with kids in case of emergencies during football matches. 
