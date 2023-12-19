@@ -7,14 +7,23 @@ I am a third year Computer Science student seeking to utilise my education and s
 
 #Education
   ●	University of Portsmouth – Computer Science BSC 2020-2024
+    
     ●	Maintained a strong academic record with an average mark of 80.9% in Year 1.
+    
     ●	Demonstrated expertise in programming languages such as Java, JS, and Python, by:
+    
       ○	Creating a replica of Wordle.
+      
       ○	Participating in a team project to design a video doorbell prototype, utilising hand sketching and discussion to identify design strengths, then using OpenCV to implement motion detection.
+      
       ○	Creating and developing genetic algorithms and neural nets.
+  
   ●	Stantonbury International School (formerly Stantonbury Campus) – A Levels 2018-2020
+  
     ●	Achieved a strong academic record in Mathematics and Computer Science, and was also awarded the Certificate of Finance.
+  
   ●	Stantonbury Campus – GCSEs 2013-2018
+  
     ●	Secured 10 GCSEs (8-4) including English, Maths, Science, and Computer Science.
 
 # Work Experience
