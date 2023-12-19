@@ -5,7 +5,7 @@
 
 I am a third year Computer Science student seeking to utilise my education and skills to gain hands-on experience in the industry.
 
-#Education
+# Education
   ●	University of Portsmouth – Computer Science BSC 2020-2024
     
     ●	Maintained a strong academic record with an average mark of 80.9% in Year 1.
