@@ -1,67 +1,58 @@
-# Mark-Voss_Software
+# CV
+#Mark Voss	07528986671
+ sorrelldrive@gmail.com
+ https://github.com/UP2024660
 
+I am a third year Computer Science student seeking to utilise my education and skills to gain hands-on experience in the industry.
 
-Page In Construction.
+#Education
+  ●	University of Portsmouth – Computer Science BSC 2020-2024
+    ●	Maintained a strong academic record with an average mark of 80.9% in Year 1.
+    ●	Demonstrated expertise in programming languages such as Java, JS, and Python, by:
+      ○	Creating a replica of Wordle.
+      ○	Participating in a team project to design a video doorbell prototype, utilising hand sketching and discussion to identify design strengths, then using OpenCV to implement motion detection.
+      ○	Creating and developing genetic algorithms and neural nets.
+  ●	Stantonbury International School (formerly Stantonbury Campus) – A Levels 2018-2020
+    ●	Achieved a strong academic record in Mathematics and Computer Science, and was also awarded the Certificate of Finance.
+  ●	Stantonbury Campus – GCSEs 2013-2018
+    ●	Secured 10 GCSEs (8-4) including English, Maths, Science, and Computer Science.
 
-This, Is Mark Voss' CV .
+# Work Experience
+## Sales Adviser, Superdrug (A.S. WATSON) – October 2023 to Present
+  ●	Provided exceptional customer service on the shop floor and at the tills, handling customer inquiries and resolving issues with a positive attitude.
+  ●	Demonstrated strong work ethic and time management skills while balancing part-time employment with university studies.
+  ●	Efficiently restocked shelves and displayed products according to company standards, ensuring a well-maintained retail environment.
 
-See what I can do , take a Peek.
+## Production Operator, Murata Power Solutions – August 2022 to August 2023
+  ●	Thorough examination of AC-DC converters, utilising various testing methods including high-voltage breakdown testing, high-speed testing, and visual inspection.
+  ●	Ensured the correct functioning of each converter by verifying the output using software-based tests.
+  ●	Maintained adherence to quality control procedures and industry standards, contributing to the production of high-quality products.
 
+## Team Leader, Co-Operative – 2018-2022
+  ●	Began as Team member and promoted to the Management Team.
+  ●	Handled the store keys and was responsible for opening and closing the store, demonstrating leadership and accountability.
+  ●	Entrusted with handling substantial amounts of money when depositing into safes, upholding financial integrity.
+  ●	Effectively led a team of employees each shift, managing day-to-day operations and ensuring smooth customer service.
+  ●	Resolved demanding situations with customers in a calm and professional manner, maintaining customer satisfaction.
+  ●	Committed to maintaining the store in a clean, organised, and welcoming environment.
+  ●	Provided outstanding customer service on the shop floor and at the tills, resolving customer inquiries and handling transactions efficiently.
+  ●	Balanced part-time employment with the demands of sixth form studies, demonstrating strong time-management and organisational skills.
+  ●	Restocked shelves and displayed products according to company standards, ensuring a visually appealing and well-stocked retail environment.
 
+## Personal Projects
+  ●	Catalogued an extensive comic book collection for a family member, including researching current prices and presenting findings in an Excel spreadsheet.
+  ●	Organised and categorised the collection, providing a comprehensive overview of the comic book library.
+  ●	Researched current prices for each comic book, providing insights into the collection's value and potential financial implications.
+  ●	Presented the findings in a clear and organised Excel spreadsheet, showcasing strong data analysis and presentation skills.
+  ●	Cataloged and organised a substantial Lego collection for a family member, researching current prices and collating the information into an Excel spreadsheet.
+  ●	Classified the Lego collection by theme, series, and individual sets, providing a detailed inventory of the collection.
+  ●	Researched current prices for each Lego set, demonstrating understanding of market trends and pricing.
+  ●	Presented the findings in an Excel spreadsheet, showcasing organisational, data analysis, and presentation skills.
 
-------------------------------------------------------
-------------------------INFO--------------------------
+## Hobbies & Interests
 
-Mark Voss is a Twenty One Year Old Computer Science Student at the University of Portsmouth. He Averaged 80.9% in his first year studies, and is currently partaking in his second year of studies in Portsmouth.
+Passionate Formula 1 fan, fortunate enough to meet notable drivers such as Sebastian Vettel and Jenson Button.  Active inline gamer and movie buff.  Regular gym user, reflecting dedication to self-discipline and personal development.
 
-Mark is proficcient in Python, having started coding in the language when he was 13 years old. For his first year project, Mark had to create a pattern that updated based on User Input. 
+## References
+Dr Rich Boakes <rjb@port.ac.uk>. Buckingham 1.13, Lion Terrace, Portsmouth PO1 3HE
 
-For his Second Year Software Engineering Project, Mark used OpenCV to create a Motion Detector that records when motion has been detected. 
-
-Mark is also experienced in Java, HTML, JavaScript,  CSS,  and SQL. If you would like to see Mark's Projects, email him at UP2024660@myport.ac.uk .
-
-------------------------------------------------------
--------------------EDUCATION--------------------------
-
-2013 - 2018
-
-Mark Studied at Stantonbury Campus (Now Called Stantonbury International) from the age of 11, to 16. During this time, he achieved 10 GCSEs grades 8-4, including English, Maths, Science and Computer Science.
-
-2018-2020
-
-For Sixth Form , Mark studied at Stantonbury International School. During these two years, Mark's education was impacted by the COVID-19 pandemic, when, his sixth form, along with the entire country, closed down in March 2020. 
-
-Due to this unforseen circumstance, Mark's education at sixth form finished here, which impacted grades, due to mitigating circumstances in previous exams.
-
-Mark was awarded an E in Maths, a D in Computer Science, and a B in a Diploma of Finance. 
-
-
-2020- PRESENT
-
-From September 2020, Mark has been enrolled in a Computer Science degree at the University of Portsmouth.
-
-For his First Year Mark created a "Smart Home" system using JAVA , in which a user , using Inputs, can turn devices on/off , plugs on/off, and move plugs around seperate rooms through a "house".
-
-
-------------------------------------------------------
---------------------INTERESTS-------------------------
-
-Mark is an Avid Formula 1 Fan, having been lucky enough to meet past drivers such as Jenson Button (2009 World Champion With Brawn), David Coulthard , 13 time race Winner, Mika Hakkinen (1998,1999 world champion).
-
-Mark spends his downtime relaxing in the Cinema , or supporting Manchester United, which has severely aged him during the past seasons. 
-
------------------------------------------------------------
----------------WORK EXPERIENCE-----------------------------
-
-
-From the age of 16, Mark worked within multiple Co-Operative stores , starting at a Customer Team Member, which consisted of manning the tills, greeting customers and stacking shelves.
-
-At the age of 18 , Mark was promoted to Team Leader, and was in charge of editing work rotas for all members of staff, was a key holder , and had the keys to the safes in which carried Money.
-
-Mark stayed within multiple Co-Operative stores, having worked within two stores in his hometown of Milton Keynes, before moving to study Computer Science at the university of Portsmouth , where he worked in 5 seperate stores.
-
-
-
-In August 2022, Mark started working at Murata Power Solutions , where he was a Production Operator , having been trained in dealing with High Voltage equipment, among other xe5rtifications involving Electricity.
-
-While at Murata Power Solutions, he took up a second job , working as a safety steward at the MK Dons Football Club Stadium, working as a steward. Through working with the football club, Mark received his DBS certification, due to the nature of working with kids in case of emergencies during football matches. 
