@@ -72,7 +72,7 @@ I am a third year Computer Science student seeking to utilise my education and s
   
   ●	Presented the findings in a clear and organised Excel spreadsheet, showcasing strong data analysis and presentation skills.
   
-  ●	Cataloged and organised a substantial Lego collection for a family member, researching current prices and collating the information into an Excel spreadsheet.
+  ●	Catalogued and organised a substantial Lego collection for a family member, researching current prices and collating the information into an Excel spreadsheet.
   
   ●	Classified the Lego collection by theme, series, and individual sets, providing a detailed inventory of the collection.
   
