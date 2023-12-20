@@ -6,7 +6,7 @@
 <h1>Active Learning Design</h1>
 <button class="expand">Add More Nodes!</button>
 
-<script src="https://d3js.org/d3.v5.min.js"></script> 
+<script src="https://d3js.org/d3.v7.min.js"></script> 
 
 <svg width ="800" height ="800"></svg>
 
@@ -37,11 +37,11 @@ line.link.optional {
   stroke-dasharray: 0,2 1;
 }
 
-circle {
+/* circle {
   fill: #ccc;
   stroke: #333;
   stroke-width: 1.5px;
-}
+} */
 
 text {
   font: 10px sans-serif;
@@ -60,7 +60,10 @@ text.shadow {
 const svg = d3.select("svg");
 const width = svg.attr("width");
 const height = svg.attr("height");
-  
+
+// Specify the color scale.
+const color = d3.scaleOrdinal(d3.schemeCategory10);
+
     
 const graphData = {
   links: [
@@ -127,7 +130,7 @@ graphData.nodes = extractNodes(graphData);
 
 const simulation = d3
   .forceSimulation(graphData.nodes)
-  .force("charge", d3.forceManyBody().strength(-200))
+  .force("charge", d3.forceManyBody().strength(-300))
   .force("center", d3.forceCenter(width / 2, height / 2))
   .force("link", d3.forceLink(graphData.links).id(d => d.name))
   .on("tick", ticked);
@@ -139,10 +142,9 @@ const links = svg
   .enter()
   .append("svg:line")
   .attr("class", function(d) { return "link " + d.type; })
-  .attr("marker-end", function(d) { return "url(#" + d.type + ")"; });
-
-  //.attr("stroke-width", 1.5)
-  //.style("stroke", "orange");
+  .attr("marker-end", function(d) { return "url(#" + d.type + ")"; })
+  // .attr("stroke-width", 1.5)
+  // .style("stroke", "orange");
 
 const drag = d3
   .drag()
@@ -158,10 +160,13 @@ const textNode = svg
   .append("g")
   .call(drag);
 
+
 const circles = textNode
+  .attr("stroke-width", 0.5)
+  // .style("stroke", "#fff")
   .append('circle')
-  .attr('r', 6)
-  .attr("fill","red");
+  .attr('r', 20)
+  .attr("fill",d => color(d.group));
 
 const texts = textNode
   .append("text")
@@ -191,21 +196,25 @@ function ticked() {
 }
 
 function dragstarted(d) {
+  if (!d.active) simulation.alphaTarget(0.3).restart();
   //your alpha hit 0 it stops! make it run again
-  simulation.alphaTarget(0.3).restart();
-  d.fx = d3.event.x;
-  d.fy = d3.event.y;
+  // simulation.alphaTarget(0.3).restart();
+  d.subject.fx = d.subject.x;
+  d.subject.fy = d.subject.y;
 }
 
 function dragged(d) {
-  d.fx = d3.event.x;
-  d.fy = d3.event.y;
+  d.subject.fx = d.x;
+  d.subject.fy = d.y;
 }
 
 function dragended(d) {
   // alpha min is 0, head there
-  simulation.alphaTarget(0);
-  d.fx = null;
-  d.fy = null;
+  if (!d.active) simulation.alphaTarget(0);
+  d.subject.fx = null;
+  d.subject.fy = null;
 }
+
+
+
 </script>
