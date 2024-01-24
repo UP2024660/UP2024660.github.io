@@ -5,7 +5,7 @@ svg {
     --face: 'Helvetica Neue', 'sans serif';
     --barfg: var(--bg);
   
-    --unit: 16px;
+    --unit: 10px;
     --basecolor: var(--purple);
     --barcolor: var(--basecolor);
   }
@@ -52,3 +52,26 @@ svg {
     cursor: default;
   }
   
+  line.link {
+    fill: none;
+    stroke: #666;
+    stroke-width: 1.5px;
+  }
+  
+  line.link.hidden {
+    fill: none;
+    stroke: none;
+    stroke-width: 1.5px;
+  }
+  
+  marker#level {fill: green;}
+  
+  line.link.level {stroke: green;}
+  
+  marker#core {  fill: green;}
+  
+  line.link.core {  stroke: orange;}
+  
+  marker#optional {  fill: teal;}
+  
+  line.link.optional {  stroke-dasharray : 0,2 1;}
