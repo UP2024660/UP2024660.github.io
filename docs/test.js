@@ -173,7 +173,10 @@ class GraphVisualization {
         window.addEventListener('resize', this.resize);
         window.addEventListener('dragover', e => e.preventDefault());
         window.addEventListener('drop', e => this.acceptDrop(e));
-        // this.updateDownloadLink(this.svg.node(), this.graphData)
+
+        this.el.downloadsvg.addEventListener('click', () => this.downloadSVG());
+        this.el.downloadjson.addEventListener('click', () => this.downloadJSON());
+        
         this.el.addnode.addEventListener('click', () => this.addNode())
         this.el.deletenode.addEventListener('click', () => this.delNode())
         this.svg.on("dblclick", () => this.addNode());
@@ -363,14 +366,68 @@ class GraphVisualization {
   
   
     downloadSVG = () => {
-      // Trigger the download based on the updated link
-      this.el.downloadsvg.click();
-      this.el.downloadsvg.download = 'graph.svg';
-  }
-  
-  
-  
-  
+        try {
+            // Clone the SVG element
+            const svgClone = this.svg.node().cloneNode(true);
+    
+            // Append links to the SVG clone
+            const group = svgClone.querySelector('g');
+            this.graphData.links.forEach(link => {
+                const line = document.createElementNS(GraphVisualization.SVG_NS, 'line');
+                line.setAttribute('class', `link ${link.type}`);
+                line.setAttribute('marker-end', `url(#${link.type})`);
+                
+                // Set stroke color based on link type using the color scale
+                line.setAttribute('stroke', this.color(link.type));
+
+                // Set other attributes as needed, e.g., stroke-dasharray
+                if (link.type === 'optional') {
+                    line.setAttribute('stroke-dasharray', '5,5');
+                }
+
+                // Find source and target nodes
+                const sourceNode = this.graphData.nodes.find(node => node.name === link.source.name);
+                const targetNode = this.graphData.nodes.find(node => node.name === link.target.name);
+
+                // Calculate link start and end points based on node positions and dimensions
+                const x1 = sourceNode.x + 30; // Adjusted for rectangle width
+                const y1 = sourceNode.y + 12.5; // Adjusted for half of rectangle height
+                const x2 = targetNode.x + 30; // Adjusted for rectangle width
+                const y2 = targetNode.y + 12.5; // Adjusted for half of rectangle height
+
+                line.setAttribute('x1', x1);
+                line.setAttribute('y1', y1);
+                line.setAttribute('x2', x2);
+                line.setAttribute('y2', y2);
+
+                group.appendChild(line);
+            });
+    
+            // Serialize the entire clone
+            const serializer = new XMLSerializer();
+            const svgString = serializer.serializeToString(svgClone);
+    
+            // Create a Blob and generate a URL
+            const blob = new Blob([svgString], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(blob);
+    
+            // Update the download link
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'graph_with_links.svg';
+            a.click();
+    
+            // Cleanup
+            URL.revokeObjectURL(url);
+        } catch (e) {
+            console.error(e);
+            this.handleDownloadError();
+        }
+    }
+    
+    
+    
+    
     downloadJSON = () => {
         try {
             const jsonData = JSON.stringify(this.graphData, null, 2);
@@ -385,83 +442,6 @@ class GraphVisualization {
         }
     }
   
-    updateDownloadLink = (svgElement) => {
-        try {
-            if (this.css == null) {
-                fetch('svg.css')
-                    .then(response => response.text())
-                    .then(css => {
-                        this.css = css;
-                        this.finishUpdateDownloadLink(svgElement);
-                    })
-                    .catch(error => {
-                        console.error(error);
-                        this.handleDownloadError();
-                    });
-            } else {
-                this.finishUpdateDownloadLink(svgElement);
-            }
-        } catch (e) {
-            console.error(e);
-            this.handleDownloadError();
-        }
-    }
-  
-    finishUpdateDownloadLink = (svgElement, timelineData) => {
-        try {
-          // Add styling
-          const clone = document.importNode(svgElement, true);
-          const style = this.svgX('style');
-          style.textContent = this.css;
-          clone.append(style);
-      
-          // Create a new group for nodes and links
-          const group = this.svgX('g');
-          
-          // Append links to the group
-          this.graphData.links.forEach(link => {
-            const line = this.svgX('line', {
-              x1: link.source.x,
-              y1: link.source.y,
-              x2: link.target.x,
-              y2: link.target.y,
-              class: 'link ' + link.type,
-              'marker-end': 'url(#' + link.type + ')',
-              stroke: this.color(link.type)
-            });
-            group.appendChild(line);
-          });
-
-          // Append nodes to the group
-          this.graphData.nodes.forEach(node => {
-            const nodeElement = this.svgX('g');
-            nodeElement.setAttribute('transform', `translate(${node.x},${node.y})`); // Set the node's position
-            const rect = this.svgX('rect', { width: 50, height: 25, fill: this.color(node.group) });
-            const circle = this.svgX('circle', { r: 5, fill: 'black' });
-            const text = this.svgX('text');
-            text.textContent = node.name;
-      
-            nodeElement.append(rect, circle, text);
-            group.appendChild(nodeElement);
-          });
-      
-          // Append the group to the cloned SVG
-          clone.querySelector('g').appendChild(group);
-      
-          // Create a Blob and generate a URL
-          const serializer = new XMLSerializer();
-          const svgContent = serializer.serializeToString(clone);
-          const blob = new Blob([svgContent], { type: 'image/svg+xml' });
-          const url = URL.createObjectURL(blob);
-      
-          // Update the download link
-          this.el.downloadsvg.href = url;
-        } catch (e) {
-          console.error(e);
-          this.handleDownloadError();
-        }
-      }
-      
     handleDownloadError = () => {
         delete this.el.downloadsvg.href;
         this.el.downloadsvg.textContent = 'Cannot download SVG';

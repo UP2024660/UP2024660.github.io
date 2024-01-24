@@ -17,11 +17,6 @@
 }
 
 
-.buttons {
-  width: 200px;
-  margin: 0 auto;
-  display: inline;}
-
 
 * {
   margin: 0;
@@ -59,9 +54,9 @@ svg {border: 1px dashed black;
 display: flex;}
 
 button {
-justify-content: flex-end;
-display: flex;
-margin: 10px;
+height: 10px;
+width: 400px;
+align-items: center;
 }
   
 line.link {
