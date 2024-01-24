@@ -1,0 +1,113 @@
+:root {
+  --purple: #61135f;
+  --blue: #009fff;
+  --alt-blue: #0080e0;
+  --bg: #fff;
+  --fg: #000;
+  --grid:
+    "title" auto
+    "output" auto
+    "control" 1fr
+    / 1fr;
+  --face: 'Helvetica Neue', 'sans serif';
+
+  --barfg: var(--bg);
+  --taskbg: #61135f33;
+  --highlight: #EEEE33FF;
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--face);
+}
+
+body {
+  display: grid;
+  grid-template: var(--grid);
+  color: var(--fg);
+  background-color: var(--bg);
+  height: 100vh;
+}
+
+body>* {
+  padding: 1rem;
+}
+
+body>header        { grid-area: title; }
+body>header {
+  grid-area: title;
+  background-color: var(--purple);
+  color: var(--bg);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100vw;
+}
+
+
+svg {border: 1px dashed black;
+display: flex;}
+
+button {
+height: 10px;
+width: 400px;
+align-items: center;
+}
+  
+line.link {
+  fill: none;
+  stroke: #666;
+  stroke-width: 1.5px;
+}
+
+line.link.hidden {
+  fill: none;
+  stroke: none;
+  stroke-width: 1.5px;
+}
+
+marker#level {fill: green;}
+
+line.link.level {stroke: green;}
+
+marker#core {  fill: green;}
+
+line.link.core {  stroke: orange;}
+
+marker#optional {  fill: teal;}
+
+line.link.optional {  stroke-dasharray : 0,2 1;}
+
+text {
+  font: 10px sans-serif;
+  pointer-events: none;
+}
+
+text.shadow {
+  stroke: #fff;
+  stroke-width: 3px;
+  stroke-opacity: .8;
+}
+
+.functions,
+[download] {
+  border: grey thin solid;
+  background-color: var(--bg);
+  color: var(--fg);
+  display: block;
+  padding: 0.25em;
+  border-radius: 0.25em;
+  margin-left: 1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--face);
+}
