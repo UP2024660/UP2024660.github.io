@@ -1,4 +1,5 @@
 class GraphVisualization {
+
     static SVG_NS = 'http://www.w3.org/2000/svg';
   
     constructor() {
@@ -16,68 +17,67 @@ class GraphVisualization {
         // Graph data initialization
         this.graphData = {
           links: [
-            {source: "Web Technologies", target: "Mark L1", type: "level"},
-            {source: "Web Technologies", target: "WT L2", type: "level"},
-            {source: "Web Technologies", target: "WT L3", type: "level"},
+            {source: "Web Technologies", level: "Course",  target: "Mark L1", type: "level"},
+            {source: "Web Technologies", level: "Course",  target: "WT L2", type: "level"},
+            {source: "Web Technologies", level : "Course", target: "WT L3", type: "level"},
         
-            {source: "Mark L1", target: "CARMA", type: "core"},
-            {source: "Mark L1", target: "INDAD", type: "core"},
-            {source: "Mark L1", target: "INTPROG", type: "core"},
-            {source: "Mark L1", target: "NETFUN", type: "core"},
-            {source: "Mark L1", target: "WEBF1", type: "core"},
+            {source: "Mark L1", level:"Learning Outcome", target: "CARMA", type: "core"},
+            {source: "Mark L1", level:"Learning Outcome", target: "INDAD", type: "core"},
+            {source: "Mark L1", level:"Learning Outcome", target: "INTPROG", type: "core"},
+            {source: "Mark L1", level:"Learning Outcome", target: "NETFUN", type: "core"},
+            {source: "Mark L1", level:"Learning Outcome", target: "WEBF1", type: "core"},
         
-            {source: "WT L2", target: "ADPROC", type: "core"},
-            {source: "WT L2", target: "GUDE", type: "core"},
-            {source: "WT L2", target: "WEPM", type: "core"},
-            {source: "WT L2", target: "WEBF2", type: "core"},
-            {source: "WT L2", target: "WEBSCPR", type: "core"},
-            {source: "WT L2", target: "COSINE", type: "optional"},
-            {source: "WT L2", target: "DSALG", type: "optional"},
-            {source: "WT L2", target: "DBPRIN", type: "optional"},
+            {source: "WT L2", level:"Learning Outcome", target: "ADPROC", type: "core"},
+            {source: "WT L2", level:"Learning Outcome", target: "GUDE", type: "core"},
+            {source: "WT L2", level:"Learning Outcome", target: "WEPM", type: "core"},
+            {source: "WT L2", level:"Learning Outcome", target: "WEBF2", type: "core"},
+            {source: "WT L2", level:"Learning Outcome", target: "WEBSCPR", type: "core"},
+            {source: "WT L2", level:"Learning Outcome", target: "COSINE", type: "optional"},
+            {source: "WT L2", level:"Learning Outcome", target: "DSALG", type: "optional"},
+            {source: "WT L2", level:"Learning Outcome", target: "DBPRIN", type: "optional"},
         
-            {source: "WT L3", target: "ENTWA", type: "core"},
-            {source: "WT L3", target: "WEBRES", type: "core"},
-            {source: "WT L3", target: "PJE40", type: "core"},
-            {source: "WT L3", target: "ADCON12", type: "optional"},
-            {source: "WT L3", target: "ADNET", type: "optional"},
-            {source: "WT L3", target: "DWM", type: "optional"},
-            {source: "WT L3", target: "DISPARP", type: "optional"},
-            {source: "WT L3", target: "FLOTA", type: "optional"},
-            {source: "WT L3", target: "NETSOC", type: "optional"},
+            {source: "WT L3", level:"Learning Outcome", target: "ENTWA", type: "core"},
+            {source: "WT L3", level:"Learning Outcome", target: "WEBRES", type: "core"},
+            {source: "WT L3", level:"Learning Outcome", target: "PJE40", type: "core"},
+            {source: "WT L3", level:"Learning Outcome", target: "ADCON12", type: "optional"},
+            {source: "WT L3", level:"Learning Outcome", target: "ADNET", type: "optional"},
+            {source: "WT L3", level:"Learning Outcome", target: "DWM", type: "optional"},
+            {source: "WT L3", level:"Learning Outcome", target: "DISPARP", type: "optional"},
+            {source: "WT L3", level:"Learning Outcome", target: "FLOTA", type: "optional"},
+            {source: "WT L3", level:"Learning Outcome", target: "NETSOC", type: "optional"},
         
-            {source: "Software Engineering", target: "Mark L1", type: "level"},
-            {source: "Software Engineering", target: "SE L2", type: "level"},
-            {source: "Software Engineering", target: "SE L3", type: "level"},
+            {source: "Software Engineering", level:"Course", target: "Mark L1", type: "level"},
+            {source: "Software Engineering", level:"Course", target: "SE L2", type: "level"},
+            {source: "Software Engineering", level:"Course", target: "SE L3", type: "level"},
         
-            {source: "SE L2", target: "3DCGAA", type:"optional"},
-            {source: "SE L2", target: "ADPROC", type:"core"},
-            {source: "SE L2", target: "U22732", type:"core"},
-            {source: "SE L2", target: "COSINE", type:"optional"},
-            {source: "SE L2", target: "DSALG", type:"core"},
-            {source: "SE L2", target: "DBPRIN", type:"optional"},
-            {source: "SE L2", target: "MATHFUN", type:"core"},
-            {source: "SE L2", target: "GUDE", type:"core"},
-            {source: "SE L2", target: "INSE", type:"core"},
-            {source: "SE L2", target: "WEBSCPR", type:"optional"},
+            {source: "SE L2", level:"Learning Outcome", target: "3DCGAA", type:"optional"},
+            {source: "SE L2", level:"Learning Outcome", target: "ADPROC", type:"core"},
+            {source: "SE L2", level:"Learning Outcome", target: "U22732", type:"core"},
+            {source: "SE L2", level:"Learning Outcome", target: "COSINE", type:"optional"},
+            {source: "SE L2", level:"Learning Outcome", target: "DSALG", type:"core"},
+            {source: "SE L2", level:"Learning Outcome", target: "DBPRIN", type:"optional"},
+            {source: "SE L2", level:"Learning Outcome", target: "MATHFUN", type:"core"},
+            {source: "SE L2", level:"Learning Outcome", target: "GUDE", type:"core"},
+            {source: "SE L2", level:"Learning Outcome", target: "INSE", type:"core"},
+            {source: "SE L2", level:"Learning Outcome", target: "WEBSCPR", type:"optional"},
         
-            {source: "SE L3", target: "ASE", type:"core"},
-            {source: "SE L3", target: "DWM", type:"optional"},
-            {source: "SE L3", target: "DISPARP", type:"optional"},
-            {source: "SE L3", target: "PJE40", type:"core"},
-            {source: "SE L3", target: "FLOTA", type:"optional"},
-            {source: "SE L3", target: "NENGA", type:"optional"},
-            {source: "SE L3", target: "PARD", type:"optional"},
-            {source: "SE L3", target: "RASS", type:"core"},
-            {source: "SE L3", target: "WEBRES", type:"optional"},
+            {source: "SE L3", level:"Learning Outcome", target: "ASE", type:"core"},
+            {source: "SE L3", level:"Learning Outcome", target: "DWM", type:"optional"},
+            {source: "SE L3", level:"Learning Outcome", target: "DISPARP", type:"optional"},
+            {source: "SE L3", level:"Learning Outcome", target: "PJE40", type:"core"},
+            {source: "SE L3", level:"Learning Outcome", target: "FLOTA", type:"optional"},
+            {source: "SE L3", level:"Learning Outcome", target: "NENGA", type:"optional"},
+            {source: "SE L3", level:"Learning Outcome", target: "PARD", type:"optional"},
+            {source: "SE L3", level:"Learning Outcome", target: "RASS", type:"core"},
+            {source: "SE L3", level:"Learning Outcome", target: "WEBRES", type:"optional"},
         
-            {source: "Web Technologies", target: "Software Engineering", type: "hidden"}
+            {source: "Web Technologies", level:"Course", target: "Software Engineering", type: "hidden"}
           ],
             nodes: [],
-        };
-  
+        }; 
         // Extract nodes from link data
         this.graphData.nodes = this.extractNodes(this.graphData);
-  
+        
         // Initialize force simulation
         this.simulation = d3.forceSimulation(this.graphData.nodes)
             .force("charge", d3.forceManyBody().strength(-300))
@@ -102,14 +102,15 @@ class GraphVisualization {
             .on("start", this.dragstarted)
             .on("drag", this.dragged)
             .on("end", this.dragended);
-  
+
         this.textNode = this.svg.append("g")
+            .append("g")
             .selectAll("g")
             .data(this.graphData.nodes)
             .enter()
             .append("g")
             .call(this.drag);
-  
+        
         this.rectangles = this.textNode
             .append('rect')
             .attr('width', 60)
@@ -174,11 +175,18 @@ class GraphVisualization {
         window.addEventListener('dragover', e => e.preventDefault());
         window.addEventListener('drop', e => this.acceptDrop(e));
 
-        this.el.downloadsvg.addEventListener('click', () => this.downloadSVG());
-        this.el.downloadjson.addEventListener('click', () => this.downloadJSON());
+        window.addEventListener('click', (event) => {
+            if (event.target.id === 'downloadsvg'){
+                this.downloadSVG();
+            }
+        });
+        window.addEventListener('click', () => this.downloadJSON());
         
         this.el.addnode.addEventListener('click', () => this.addNode())
         this.el.deletenode.addEventListener('click', () => this.delNode())
+        this.el.editnode.addEventListener('click', () => this.editNode())
+        this.el.addlink.addEventListener('click', () => this.addLink())
+        this.el.deletelink.addEventListener('click', () => this.delLink())
         this.svg.on("dblclick", () => this.addNode());
     }
     
@@ -191,6 +199,21 @@ class GraphVisualization {
             this.readSVGFile(f);
         }
     }
+
+    gatherInputData(jsonData) {
+        const nodes = jsonData.nodes;
+        const links = jsonData.links.map(link => {
+            return {
+                source: link.source.name,
+                target: link.target.name,
+                type: link.type
+            };
+        });
+    
+        return { nodes, links };
+    }
+    
+
   
     readJSONFile(file) {
         const reader = new FileReader();
@@ -217,12 +240,65 @@ class GraphVisualization {
     }
   
     addDataToUI(data) {
-
         if (data.nodes && data.links) {
             this.graphData.nodes = data.nodes;
             this.graphData.links = data.links;
-            this.redrawGraph(data);
+    
+            // Update simulation with new nodes and links
+            this.simulation.nodes(this.graphData.nodes);
+            this.simulation.force("link").links(this.graphData.links);
+            this.simulation.alpha(1).restart();
+    
+            // Update existing SVG elements without clearing
+            this.updateSVGElements();
+    
+            // Update the positions of existing nodes in the textNode group
+            this.textNode.attr("transform", d => `translate(${Math.max(0, Math.min(this.width - 50, d.x))},${Math.max(0, Math.min(this.height - 25, d.y))})`);
         }
+    }
+    
+
+    updateSVGElements() {
+        // Update links and nodes together
+        this.links = this.links.data(this.graphData.links, d => `${d.source.name}-${d.target.name}`);
+        this.links.exit().remove();
+    
+        this.textNode = this.textNode.data(this.graphData.nodes, d => d.name);
+    
+        // Remove elements that are no longer needed
+        this.links.exit().remove();
+        this.textNode.exit().remove();
+    
+        // Enter new links
+        const newLinks = this.links.enter()
+            .append("svg:line")
+            .attr("class", d => `link ${d.type}`)
+            .attr("marker-end", d => `url(#${d.type})`);
+    
+        // Enter new nodes
+        const newNodeGroups = this.textNode.enter()
+            .append("g")
+            .call(this.drag);
+    
+        newNodeGroups.append('rect')
+            .attr('width', 60)
+            .attr('height', 25)
+            .attr("fill", d => this.color(d.group));
+    
+        newNodeGroups.append("text")
+            .attr("text-anchor", "middle")
+            .attr("dominant-baseline", "middle")
+            .attr("x", 30)
+            .attr("y", 12.5)
+            .selectAll("tspan")
+            .data(d => Array.isArray(d.name) ? d.name : [d.name])
+            .enter()
+            .append("tspan")
+            .text(d => (typeof d === 'object' && d.name) ? d.name : d);
+    
+        // Merge links and nodes
+        this.links = newLinks.merge(this.links);
+        this.textNode = newNodeGroups.merge(this.textNode);
     }
   
     redrawGraph(data) {
@@ -238,6 +314,8 @@ class GraphVisualization {
     
         // Update existing SVG elements without clearing
         this.updateSVGElements();
+
+        this.textNode.attr("transform", d => `translate(${Math.max(0, Math.min(this.width - 50, d.x))},${Math.max(0, Math.min(this.height - 25, d.y))})`);
     }
 
     addNode() {
@@ -277,9 +355,6 @@ class GraphVisualization {
             }
         }
     }
-    
-
-    
     delNode() {
         const nodeName = prompt("Enter Node Name: ");
         if (nodeName) {
@@ -303,68 +378,88 @@ class GraphVisualization {
             alert("Invalid Node Name");
         }
     }
-    
-    updateSVGElements() {
-        // Update links
-        this.links = this.links.data(this.graphData.links, d => `${d.source.name}-${d.target.name}`);
-        this.links.exit().remove();
-    
-        const newLinks = this.links.enter()
-            .append("svg:line")
-            .attr("class", d => "link " + d.type)
-            .attr("marker-end", d => "url(#" + d.type + ")");
 
+    editNode() {
+        const nodeName = prompt("Enter Node Name: ");
+        const newNodeName = prompt("Enter New Node Name: ");
 
-        this.links = newLinks.merge(this.links);
+        if (nodeName && newNodeName) {
+            // Find the node to be edited
+            const node = this.graphData.nodes.find(node => node.name === nodeName);
             
-        // Update nodes
-        this.textNode = this.textNode.data(this.graphData.nodes, d => d.name.name);
-
-        this.textNode.exit().remove();
-
-        const newNodeGroups = this.textNode.enter()
-            .append("g")
-            .call(this.drag);
-
-        const newRectangles = newNodeGroups
-            .append('rect')
-            .attr('width', 60)
-            .attr('height', 25)
-            .attr("fill", d => this.color(d.group));
-
-        const newTexts = newNodeGroups
-        .append("text")
-        .attr("text-anchor", "middle")
-        .attr("dominant-baseline", "middle")
-        .attr("x", 30)
-        .attr("y", 12.5)
-        .selectAll("tspan")
-        .data(d => {
-            return Array.isArray(d.name) ? d.name : [d.name];
-        })
-        .enter()
-        .append("tspan")
-        .text(d => {
-            if (typeof d === 'object' && d.name) {
-
-                return d.name; // If it's an object, use the 'name' property
-            } else {
-
-                return d; // Otherwise, use the value directly
+            if (node) {
+                // Update the node name
+                node.name = newNodeName;
+                // this.texts.filter(d => d.name === nodeName).text(newNodeName);
+                // Update the simulation and redraw the graph
+                // this.updateSimulation(this.graphData);
+                this.redrawGraph(this.graphData);
+                this.texts = this.textNode.selectAll("text")
+                .selectAll("tspan")
+                .data(d => d.name.split(' '))
+                .enter()
+                .append("tspan")
+                .text(d => d)
+                .attr("x", 30)
+                .attr("dy", (d, i) => i * 8);
             }
-        })
-        .attr("x", 30)
-        .attr("dy", (d, i) => i * 8);
-        
-
-        this.textNode = this.textNode.merge(newNodeGroups);
-        
-
+        }
     }
+
+    addLink(){
+        const sourceNode = prompt("Enter Source Node: ");
+        const targetNode = prompt("Enter Target Node: ");
+        const linkType = prompt("Enter Link Type: ");
     
-  
-  
-  
+        if (sourceNode && targetNode) {
+            // Find the source and target nodes
+            const source = this.graphData.nodes.find(node => node.name === sourceNode);
+            const target = this.graphData.nodes.find(node => node.name === targetNode);
+    
+            if (source && target) {
+                // Append the new link to the links array
+                this.graphData.links.push({
+                    source: source,
+                    target: target,
+                    type: linkType
+                });
+    
+                // Update the simulation with the modified graphData
+                // this.updateSimulation(this.graphData);
+    
+                // Redraw the graph with the modified graphData
+                this.redrawGraph(this.graphData);
+            } else {
+                alert("Source or target node not found");
+            }
+        } else {
+            alert("Invalid source or target node");
+        }
+    }
+
+    delLink(){
+        const sourceNode = prompt("Enter Source Node: ");
+        const targetNode = prompt("Enter Target Node: ");
+
+        if (sourceNode && targetNode) {
+            // Find the index of the link to be deleted
+            const index = this.graphData.links.findIndex(link => link.source.name === sourceNode && link.target.name === targetNode);
+
+            if (index > -1) {
+                // Remove the link from the links array
+                this.graphData.links.splice(index, 1);
+
+                // Update the simulation and redraw the graph
+                // this.updateSimulation(this.graphData);
+                this.redrawGraph(this.graphData);
+            } else {
+                alert("Link not found");
+            }
+        } else {
+            alert("Invalid source or target node");
+        }
+    }
+
     downloadSVG = () => {
         try {
             // Clone the SVG element
@@ -425,9 +520,6 @@ class GraphVisualization {
         }
     }
     
-    
-    
-    
     downloadJSON = () => {
         try {
             const jsonData = JSON.stringify(this.graphData, null, 2);
@@ -441,13 +533,12 @@ class GraphVisualization {
             this.handleDownloadError();
         }
     }
-  
+
     handleDownloadError = () => {
         delete this.el.downloadsvg.href;
         this.el.downloadsvg.textContent = 'Cannot download SVG';
         this.el.downloadsvg.title = 'Error while generating download link';
     }
-    
       svgX = (name, attributes = {}) => {
         const el = document.createElementNS(GraphVisualization.SVG_NS, name);
         for (const attr of Object.keys(attributes)) {
@@ -456,9 +547,6 @@ class GraphVisualization {
         return el;
       }
     }
-    
 
-  
-  
   const graphViz = new GraphVisualization();
   graphViz.init();

@@ -1,0 +1,32 @@
+<!-- FILEPATH: /C:/Users/sorre/Desktop/FYP/TestRun/test0.html -->
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+<title>Active Learning Design</title>
+<header>
+    <h1>Active Learning Design</h1>
+    <span class = functions title="Drag and Drop a JSON file onto the page to add data!">Drop JSON file here!</span>
+    <a id="downloadjson" download = "LearningGraph.json">download JSON data</a>
+    <a id="downloadsvg" download = "LearningGraph.svg">download SVG data</a>
+</header>
+
+<body>
+    <svg width="800" height="800"></svg>
+    <div class="buttons">
+        <button id="addnode">Add Node</button>
+        <button id="deletenode">Delete Node</button>
+        <button id="editnode">Edit Node</button>
+        <button id="addlink">Add Connection</button>
+        <button id="deletelink">Delete Connection</button>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script defer type="module" src="test.js"></script>
+
+
+</body>
+
+</html>
+
