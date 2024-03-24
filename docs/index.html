@@ -1,32 +1,85 @@
-<!-- FILEPATH: /C:/Users/sorre/Desktop/FYP/TestRun/test0.html -->
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="style.css">
-<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-<title>Active Learning Design</title>
-<header>
-    <h1>Active Learning Design</h1>
-    <span class = functions title="Drag and Drop a JSON file onto the page to add data!">Drop JSON file here!</span>
-    <a id="downloadjson" download = "LearningGraph.json">download JSON data</a>
-    <a id="downloadsvg" download = "LearningGraph.svg">download SVG data</a>
-</header>
-
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Active Learning Design</title>            
+</head>
 <body>
-    <svg width="800" height="800"></svg>
-    <div class="buttons">
-        <button id="addnode">Add Node</button>
-        <button id="deletenode">Delete Node</button>
-        <button id="editnode">Edit Node</button>
-        <button id="addlink">Add Connection</button>
-        <button id="deletelink">Delete Connection</button>
+    <header>
+        <h1>Active Learning Design</h1>
+        <span class="functions" title="Drag and Drop a JSON file onto the page to add data!">Drop JSON file here!</span>
+        <a id="downloadjson" download="LearningGraph.json">download JSON data</a>
+        <a id="downloadsvg" download="LearningGraph.svg">download SVG data</a>
+    </header>
+
+    
+    
+    <div class="split left">
+        <div class="centered"></div>
+        <textarea id="info" rows="50" cols="100" placeholder="Information about the selected node"></textarea>
+
     </div>
 
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script defer type="module" src="test.js"></script>
+    
+    <div class="split right">
+        <div class="centered">
+            <svg width="800" height="800"></svg>
+            
+            <div class="buttons">
+                <button id="addnode">Add Node</button>
+                <button id="deletenode">Delete Node</button>
+                <button id="editnode">Edit Node</button>
+                <button id="addlink">Add Connection</button>
+                <button id="deletelink">Delete Connection</button>
+            </div>
+
+            <script src="https://d3js.org/d3.v7.min.js"></script>
+            <script defer type="module" src="test.js"></script> 
+        </div>
+    </div>
 
 
+    <div class="popup">
+        <button id="close">&times;</button>
+        <h2> Welcome to the Active Learning Design Tool</h2>
+        <p> Welcome to UP2024660's ALD tool.
+            <br>
+            This tool is designed to help you create and visualise a learning graph. 
+            A learning graph is a visual representation of the connections between different learning topics.
+            <br>
+            To get started, you can either drag and drop a JSON file onto the page, or click the "Add Node" button to create a new node.
+            <br>
+            Once you have nodes, you can click the "Add Connection" button to create a connection between two nodes.
+            <br>
+            You can also click the "Edit Node" button to change the name of a node, and the "Delete Node" and "Delete Connection" buttons to remove nodes and connections.
+            <br>
+            Once you have created your learning graph, you can download the data as a JSON file, or download the graph as an SVG image.
+            <br>
+            If you need help, click the "Help" button at the top of the page.
+            <br>
+            Have fun creating your learning graph!
+            <br>
+            Courses are shaped like Rectangles
+            <br>
+            Modules are shaped like Circles
+            <br>
+            Learning Outcomes are Trapeziums with orange fill
+            <br>
+            Topics are Trapeziums with pink fill.
+            <br>
+            Assessments are shaped like Trapeziums with yellow fill.
+        </p>
+        
+    </div>
+    <div class="endpopup">
+        <button id="close">&times;</button>
+        <h2>Thanks for using!</h2>
+        <p> 
+            
+        </p>
+        
+    </div>
 </body>
-
 </html>
-

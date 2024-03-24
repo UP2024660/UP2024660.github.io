@@ -4,80 +4,52 @@ class GraphVisualization {
   
     constructor() {
         // Initialize properties
+        window.addEventListener('load', function () {
+        setTimeout(
+            function open() { document.querySelector('.popup').style.display = 'block'; },
+            1000);
+        });
+
+        document.querySelector('#close').addEventListener('click', function () { document.querySelector('.popup').style.display = 'none'; });
+
         this.svg = d3.select("svg");
         this.width = +this.svg.attr("width");
         this.height = +this.svg.attr("height");
         this.color = d3.scaleOrdinal(d3.schemeCategory10).domain(["core", "optional", "hidden", "level"]);
         this.el = {};
+
+        
         document.querySelectorAll('[id]').forEach(e => this.el[e.id] = e);
   
         // Event listener for SVG download button
         // this.el.downloadsvg.addEventListener('click', () => this.downloadSVG());
   
         // Graph data initialization
-        this.graphData = {
-          links: [
-            {source: "Web Technologies", level: "Course",  target: "Mark L1", type: "level"},
-            {source: "Web Technologies", level: "Course",  target: "WT L2", type: "level"},
-            {source: "Web Technologies", level : "Course", target: "WT L3", type: "level"},
-        
-            {source: "Mark L1", level:"Learning Outcome", target: "CARMA", type: "core"},
-            {source: "Mark L1", level:"Learning Outcome", target: "INDAD", type: "core"},
-            {source: "Mark L1", level:"Learning Outcome", target: "INTPROG", type: "core"},
-            {source: "Mark L1", level:"Learning Outcome", target: "NETFUN", type: "core"},
-            {source: "Mark L1", level:"Learning Outcome", target: "WEBF1", type: "core"},
-        
-            {source: "WT L2", level:"Learning Outcome", target: "ADPROC", type: "core"},
-            {source: "WT L2", level:"Learning Outcome", target: "GUDE", type: "core"},
-            {source: "WT L2", level:"Learning Outcome", target: "WEPM", type: "core"},
-            {source: "WT L2", level:"Learning Outcome", target: "WEBF2", type: "core"},
-            {source: "WT L2", level:"Learning Outcome", target: "WEBSCPR", type: "core"},
-            {source: "WT L2", level:"Learning Outcome", target: "COSINE", type: "optional"},
-            {source: "WT L2", level:"Learning Outcome", target: "DSALG", type: "optional"},
-            {source: "WT L2", level:"Learning Outcome", target: "DBPRIN", type: "optional"},
-        
-            {source: "WT L3", level:"Learning Outcome", target: "ENTWA", type: "core"},
-            {source: "WT L3", level:"Learning Outcome", target: "WEBRES", type: "core"},
-            {source: "WT L3", level:"Learning Outcome", target: "PJE40", type: "core"},
-            {source: "WT L3", level:"Learning Outcome", target: "ADCON12", type: "optional"},
-            {source: "WT L3", level:"Learning Outcome", target: "ADNET", type: "optional"},
-            {source: "WT L3", level:"Learning Outcome", target: "DWM", type: "optional"},
-            {source: "WT L3", level:"Learning Outcome", target: "DISPARP", type: "optional"},
-            {source: "WT L3", level:"Learning Outcome", target: "FLOTA", type: "optional"},
-            {source: "WT L3", level:"Learning Outcome", target: "NETSOC", type: "optional"},
-        
-            {source: "Software Engineering", level:"Course", target: "Mark L1", type: "level"},
-            {source: "Software Engineering", level:"Course", target: "SE L2", type: "level"},
-            {source: "Software Engineering", level:"Course", target: "SE L3", type: "level"},
-        
-            {source: "SE L2", level:"Learning Outcome", target: "3DCGAA", type:"optional"},
-            {source: "SE L2", level:"Learning Outcome", target: "ADPROC", type:"core"},
-            {source: "SE L2", level:"Learning Outcome", target: "U22732", type:"core"},
-            {source: "SE L2", level:"Learning Outcome", target: "COSINE", type:"optional"},
-            {source: "SE L2", level:"Learning Outcome", target: "DSALG", type:"core"},
-            {source: "SE L2", level:"Learning Outcome", target: "DBPRIN", type:"optional"},
-            {source: "SE L2", level:"Learning Outcome", target: "MATHFUN", type:"core"},
-            {source: "SE L2", level:"Learning Outcome", target: "GUDE", type:"core"},
-            {source: "SE L2", level:"Learning Outcome", target: "INSE", type:"core"},
-            {source: "SE L2", level:"Learning Outcome", target: "WEBSCPR", type:"optional"},
-        
-            {source: "SE L3", level:"Learning Outcome", target: "ASE", type:"core"},
-            {source: "SE L3", level:"Learning Outcome", target: "DWM", type:"optional"},
-            {source: "SE L3", level:"Learning Outcome", target: "DISPARP", type:"optional"},
-            {source: "SE L3", level:"Learning Outcome", target: "PJE40", type:"core"},
-            {source: "SE L3", level:"Learning Outcome", target: "FLOTA", type:"optional"},
-            {source: "SE L3", level:"Learning Outcome", target: "NENGA", type:"optional"},
-            {source: "SE L3", level:"Learning Outcome", target: "PARD", type:"optional"},
-            {source: "SE L3", level:"Learning Outcome", target: "RASS", type:"core"},
-            {source: "SE L3", level:"Learning Outcome", target: "WEBRES", type:"optional"},
-        
-            {source: "Web Technologies", level:"Course", target: "Software Engineering", type: "hidden"}
-          ],
+        this.graphData = {links: [
+            // {source: "Software Engineering", sourceType:"", target: "",targetType: "Course", type: ""},
+            
+            {source: "Software Engineering", sourceType:"Course", target: "SE L2",targetType: "Learning Outcome", type: "optional"},
+            {source: "Software Engineering", sourceType:"Course", target: "SE L3",targetType: "Learning Outcome", type: "level"},
+            {source: "Software Engineering", sourceType:"Course", target: "Mark L1",targetType: "Learning Outcome", type: "level"},
+
+
+            {source: "Mark L1", sourceType:"Learning Outcome", target: "CARMA",targetType: "Module", type: "core"},
+            {source: "Mark L1", sourceType:"Learning Outcome", target: "INDAD",targetType: "Module", type: "core"},
+            {source: "Mark L1", sourceType:"Learning Outcome", target: "INTPROG",targetType: "Module", type: "core"},
+            {source: "Mark L1", sourceType:"Learning Outcome", target: "NETFUN",targetType: "Module", type: "core"},
+            
+            {source: "Mark L1", sourceType:"Learning Outcome", target: "WEBF1",targetType: "Module", type: "core"},
+            // {source: "Mark L1", sourceType:"Learning Outcome", target: "Software Engineering",targetType: "Course", type: "level"},
+            
+            {source: "WEBF1", sourceType:"Module", target: "Topic-Mark",targetType: "Topic", type: "core"},
+            {source: "Topic-Mark", sourceType:"Topic", target: "Assessment-Mark",targetType: "Assessment", type: "level"},
+            
+            ],
             nodes: [],
         }; 
         // Extract nodes from link data
         this.graphData.nodes = this.extractNodes(this.graphData);
-        
+        console.log(this.graphData.nodes)
         // Initialize force simulation
         this.simulation = d3.forceSimulation(this.graphData.nodes)
             .force("charge", d3.forceManyBody().strength(-300))
@@ -86,6 +58,7 @@ class GraphVisualization {
             .force("link", d3.forceLink(this.graphData.links).id(d => d.name))
             .force("x", d3.forceX().strength(0.1).x(this.width / 2))
             .force("y", d3.forceY().strength(0.1).y(this.height / 2))
+            .force("chargelink", d3.forceManyBody().strength(-10))
             .on("tick", this.ticked);
   
         // Initialize SVG elements
@@ -95,6 +68,7 @@ class GraphVisualization {
             .enter()
   
             .append("svg:line")
+            .attr("name", d => d.name)
             .attr("class", d => "link " + d.type)
             .attr("marker-end", d => "url(#" + d.type + ")");
   
@@ -102,21 +76,83 @@ class GraphVisualization {
             .on("start", this.dragstarted)
             .on("drag", this.dragged)
             .on("end", this.dragended);
-
-        this.textNode = this.svg.append("g")
-            .append("g")
+        
+        // console.log('Graph Data: ', this.graphData)
+        this.textNode = this.svg
+            .append("svg:g")
             .selectAll("g")
             .data(this.graphData.nodes)
             .enter()
-            .append("g")
+            .append("svg:g")
+            .attr("Class", d => {
+                // console.log('Name:', d.name);
+                // console.log('Level:', d.level);
+                // console.log('TargetType:', d.targetType);
+                // Access level and targetType directly from the node data
+                const levelLabel = d.sourceType === "Learning Outcome" ? "Learning Outcome" : (d.sourceType === "Course" ? "Course" : "Module");
+                const targetTypeLabel = d.targetType === "Learning Outcome" ? "Learning Outcome" : (d.targetType === "Course" ? "Course" : "Module");
+                
+                // Construct the class attribute using the level and targetType labels
+                return "Level - " + levelLabel + " TargetType - " + targetTypeLabel;
+            })
+            .attr("marker-end", d => {
+                // Use targetType directly to set marker-end attribute
+                return "url(#" + d.sourceType + ")";
+            })
+            
             .call(this.drag);
         
-        this.rectangles = this.textNode
-            .append('rect')
-            .attr('width', 60)
-            .attr('height', 25)
-            .attr("fill", d => this.color(d.group));
-  
+        
+        // console.log(this.graphData.nodes)
+
+        this.shapes = this.textNode
+            .append('g')
+            .attr('class', 'node-shapes')
+            .each(function(d) {
+                // Calculate the position of the shape relative to the text
+            const shapeX = 30; // X position of the text
+            const shapeY = 12.5; // Y position of the text
+
+            // Append shapes based on node targetType
+            if (d.targetType === 'Module') {
+                // For circles, center the shape on the text
+                d3.select(this).append('circle')
+                    .attr('r', 20)
+                    .attr('fill', 'lightgreen')
+                    .attr('transform', `translate(${shapeX}, ${shapeY})`);
+            } else if (d.targetType === 'Course') {
+                // For rectangles, adjust the center position based on text position
+                d3.select(this).append('rect')
+                    .attr('width', 60)
+                    .attr('height', 30)
+                    .attr('rx', 10)
+                    .attr('ry', 10)
+                    .attr('fill', 'lightblue')
+                    .attr('transform', `translate(${shapeX -30}, ${shapeY - 15})`);
+            } else if (d.targetType === 'Learning Outcome') {
+                // For polygons, adjust the starting position based on text position
+                d3.select(this).append('polygon')
+                    .attr('points', '0,0 40,0 70,30 0,30')
+                    .attr('fill', 'orange')
+                    .attr('transform', `translate(${shapeX-25}, ${shapeY - 15})`);
+            } else if (d.targetType === 'Topic') {
+                // For polygons, adjust the starting position based on text position
+                d3.select(this).append('polygon')
+                    .attr('points', '0,0 40,0 70,40 0,30')
+                    .attr('fill', 'pink')
+                    .attr('transform', `translate(${shapeX-25}, ${shapeY - 15})`);
+            }
+            else if (d.targetType === 'Assessment') {
+                // For polygons, adjust the starting position based on text position
+                d3.select(this).append('polygon')
+                    .attr('points', '0,0 40,0 70,30 0,30')
+                    .attr('fill', 'yellow')
+                    .attr('transform', `translate(${shapeX-25}, ${shapeY - 15})`);
+            }
+        });
+
+
+        
         this.texts = this.textNode
             .append("text")
             .attr("text-anchor", "middle")
@@ -130,19 +166,57 @@ class GraphVisualization {
             .attr("x", 30)
             .attr("dy", (d, i) => i * 8);
     }
+        // Inside the constructor of GraphVisualization class
+
+    // Append foreignObject elements with input boxes for text editing
+    
   
     extractNodes(graphData) {
-        let nodeSet = new Set();
-        graphData.links.forEach(link => {
-            nodeSet.add(link.source);
-            nodeSet.add(link.target);
-        });
-        const nodes = Array.from(nodeSet).map(node => {
-            return { name: node };
-        });
-        return nodes;
-    }
-  
+    let nodeMap = new Map();
+
+    graphData.links.forEach(link => {
+        // Add source node
+        if (!nodeMap.has(link.source)) {
+            nodeMap.set(link.source, {
+                name: link.source,
+                sourceType: link.sourceType,
+                targetType: "", // Initialize targetType
+            });
+        }
+        // Add target node
+        if (!nodeMap.has(link.target)) {
+            nodeMap.set(link.target, {
+                name: link.target,
+                sourceType: link.sourceType,
+                targetType: link.targetType,
+            });
+        } else {
+            // Update targetType if the node is created from the target
+            const node = nodeMap.get(link.target);
+            node.targetType = node.targetType || link.targetType; // Update targetType only if it's not defined yet
+            nodeMap.set(link.target, node);
+        }
+    });
+
+    // Convert the map values to an array and map it to include the required properties
+    const nodes = Array.from(nodeMap.values()).map((node, index) => {
+        return {
+            name: node.name,
+            level: node.level !== undefined ? node.level : undefined,
+            targetType: node.targetType || node.sourceType, // Use targetType if defined, otherwise use sourceType
+            index: index,
+            x: 0,
+            y: 0,
+            vx: 0,
+            vy: 0
+        };
+    });
+    console.log('Nodes:', nodes);
+    return nodes;
+}
+
+    
+    
     ticked = () => {
         // Clip nodes within the SVG container
         this.textNode.attr("transform", d => `translate(${Math.max(0, Math.min(this.width - 50, d.x))},${Math.max(0, Math.min(this.height - 25, d.y))})`);
@@ -171,7 +245,7 @@ class GraphVisualization {
     }
   
     init() {
-        window.addEventListener('resize', this.resize);
+        // window.addEventListener('resize', this.resize);
         window.addEventListener('dragover', e => e.preventDefault());
         window.addEventListener('drop', e => this.acceptDrop(e));
 
@@ -180,16 +254,115 @@ class GraphVisualization {
                 this.downloadSVG();
             }
         });
-        window.addEventListener('click', () => this.downloadJSON());
         
+        window.addEventListener('click', () => this.downloadJSON());
+        document.getElementById('info').value = JSON.stringify(this.graphData.nodes);
         this.el.addnode.addEventListener('click', () => this.addNode())
         this.el.deletenode.addEventListener('click', () => this.delNode())
         this.el.editnode.addEventListener('click', () => this.editNode())
         this.el.addlink.addEventListener('click', () => this.addLink())
         this.el.deletelink.addEventListener('click', () => this.delLink())
         this.svg.on("dblclick", () => this.addNode());
+        // this.el.newnode.addEventListener('mousedown', this.handleNewNodeMouseDown);
+        document.addEventListener('mousemove', this.handleNewNodeMouseMove);
+        document.addEventListener('mouseup', this.handleNewNodeMouseUp);
+
     }
     
+
+    
+    handleNewNodeMouseDown = (event) => {
+        // Prevent default behavior to avoid text selection
+        event.preventDefault();
+        // Set the flag to indicate that dragging has started
+        this.isDraggingNewNode = true;
+        // Get the initial mouse position
+        this.initialMouseX = event.clientX;
+        this.initialMouseY = event.clientY;
+    }
+    
+    handleNewNodeMouseMove = (event) => {
+        // If dragging has started
+        if (this.isDraggingNewNode) {
+            // Update the position of the temporary node rectangle
+            this.el.newnode.style.left = event.clientX + 'px';
+            this.el.newnode.style.top = event.clientY + 'px';
+        }
+    }
+    
+    handleNewNodeMouseUp = (event) => {
+        // If dragging has started
+        if (this.isDraggingNewNode) {
+            // Get the position of the mouse relative to the SVG container
+            const svgRect = this.svg.node().getBoundingClientRect();
+            const mouseX = event.clientX - svgRect.left;
+            const mouseY = event.clientY - svgRect.top;
+    
+            // Create a new node at the final position
+            this.createNewNode(mouseX, mouseY);
+    
+            // Reset dragging flag and remove temporary node rectangle
+            this.isDraggingNewNode = false;
+            this.el.newnode.style.left = '-9999px';
+            this.el.newnode.style.top = '-9999px';
+        }
+    }
+    
+    createNewNode(x, y) {
+        // Create a new node at the specified position
+        const newNode = {
+            name: "New Node",
+            x: x,
+            y: y
+        };
+    
+        // Append the new node to the nodes array
+        this.graphData.nodes.push(newNode);
+    
+        // Update the simulation with the modified graphData
+        this.simulation.nodes(this.graphData.nodes);
+    
+        // Redraw the graph with the modified graphData
+        this.redrawGraph(this.graphData);
+    
+        // Create a group for the new node
+        const group = this.svg.append('g')
+            .attr('class', 'node')
+            .attr('transform', `translate(${x},${y})`)
+            .call(this.drag); // Enable dragging for the node
+    
+        // Create a rectangle for the node
+        const rect = group.append('rect')
+            .attr('width', 100)
+            .attr('height', 50)
+            .style('fill', 'lightblue')
+            .style('stroke', 'blue')
+            .style('stroke-width', 2)
+            .on('mousedown', function() {
+                d3.event.stopPropagation(); // Prevent dragging when clicking on the rectangle
+            });
+    
+        // Create an editable text box on the node rectangle
+        const textBox = group.append('foreignObject')
+            .attr('x', 5) // Adjust the position within the rectangle
+            .attr('y', 5) // Adjust the position within the rectangle
+            .attr('width', 90) // Adjust the size to fit the rectangle
+            .attr('height', 40) // Adjust the size to fit the rectangle
+            .append('xhtml:div')
+            .attr('contenteditable', 'true')
+            .style('width', '100%')
+            .style('height', '100%')
+            .text(newNode.name); // Set initial text content
+    
+        // Listen for input event to update node name
+        textBox.on('input', function() {
+            newNode.name = d3.select(this).text().trim(); // Update node name
+        });
+    
+        // Attach the editable text box to the new node
+        newNode.textBox = textBox;
+    }
+
     acceptDrop(e) {
         e.preventDefault();
         const f = e.dataTransfer.files[0];
@@ -213,8 +386,6 @@ class GraphVisualization {
         return { nodes, links };
     }
     
-
-  
     readJSONFile(file) {
         const reader = new FileReader();
         reader.onload = () => {
@@ -257,7 +428,6 @@ class GraphVisualization {
         }
     }
     
-
     updateSVGElements() {
         // Update links and nodes together
         this.links = this.links.data(this.graphData.links, d => `${d.source.name}-${d.target.name}`);
@@ -333,7 +503,7 @@ class GraphVisualization {
             if (existingNode) {
                 // Append the new node to the nodes array
 
-                const newNode = { name: nodeName,x: 400, y: 400 };
+                const newNode = { name: nodeName,index: (((this.graphData.nodes).lenghth) + 1) ,x: 400, y: 400 };
 
                 this.graphData.nodes.push(newNode);
   
@@ -354,6 +524,7 @@ class GraphVisualization {
                 alert("Target node not found");
             }
         }
+        info.value = JSON.stringify(this.graphData.nodes);
     }
     delNode() {
         const nodeName = prompt("Enter Node Name: ");
@@ -377,12 +548,41 @@ class GraphVisualization {
         } else {
             alert("Invalid Node Name");
         }
+        info.value = JSON.stringify(this.graphData.nodes);
     }
 
     editNode() {
-        const nodeName = prompt("Enter Node Name: ");
-        const newNodeName = prompt("Enter New Node Name: ");
+    const nodeName = prompt("Enter Node Name: ");
+    const newNodeName = prompt("Enter New Node Name: ");
 
+    if (nodeName && newNodeName) {
+        // Find the node to be edited
+        const node = this.graphData.nodes.find(node => node.name === nodeName);
+        
+        if (node) {
+            // Update the node name
+            node.name = newNodeName;
+
+            // Select the <text> element corresponding to the edited node
+            const textElement = this.textNode.filter(d => d === node).select("text");
+
+            // Update the text content of the <tspan> elements within the selected <text> element
+            textElement.selectAll("tspan")
+                .text((d, i) => {
+                    // Split the new node name by spaces for multiline display
+                    const newNameParts = newNodeName.split(' ');
+                    // Return the corresponding part of the new name
+                    return newNameParts[i] ? newNameParts[i] : '';
+                });
+
+            // Update the simulation and redraw the graph
+            this.redrawGraph(this.graphData);
+        }
+    }
+    info.value = JSON.stringify(this.graphData.nodes);
+}
+
+    editNodeInfo(nodeName, newNodeName) {
         if (nodeName && newNodeName) {
             // Find the node to be edited
             const node = this.graphData.nodes.find(node => node.name === nodeName);
@@ -390,21 +590,26 @@ class GraphVisualization {
             if (node) {
                 // Update the node name
                 node.name = newNodeName;
-                // this.texts.filter(d => d.name === nodeName).text(newNodeName);
+
+                // Select the <text> element corresponding to the edited node
+                const textElement = this.textNode.filter(d => d === node).select("text");
+
+                // Update the text content of the <tspan> elements within the selected <text> element
+                textElement.selectAll("tspan")
+                    .text((d, i) => {
+                        // Split the new node name by spaces for multiline display
+                        const newNameParts = newNodeName.split(' ');
+                        // Return the corresponding part of the new name
+                        return newNameParts[i] ? newNameParts[i] : '';
+                    });
+
                 // Update the simulation and redraw the graph
-                // this.updateSimulation(this.graphData);
                 this.redrawGraph(this.graphData);
-                this.texts = this.textNode.selectAll("text")
-                .selectAll("tspan")
-                .data(d => d.name.split(' '))
-                .enter()
-                .append("tspan")
-                .text(d => d)
-                .attr("x", 30)
-                .attr("dy", (d, i) => i * 8);
             }
         }
+        info.value = JSON.stringify(this.graphData.nodes);
     }
+    
 
     addLink(){
         const sourceNode = prompt("Enter Source Node: ");
@@ -435,6 +640,7 @@ class GraphVisualization {
         } else {
             alert("Invalid source or target node");
         }
+        info.value = JSON.stringify(this.graphData.nodes);
     }
 
     delLink(){
@@ -458,6 +664,7 @@ class GraphVisualization {
         } else {
             alert("Invalid source or target node");
         }
+        info.value = JSON.stringify(this.graphData.nodes);
     }
 
     downloadSVG = () => {
